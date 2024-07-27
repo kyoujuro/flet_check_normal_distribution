@@ -20,6 +20,15 @@ class DistributionTest(unittest.TestCase):
         except Exception as e:
             print(f'Error {e}')
 
+    def test_lognormal_distribution(self):
+        try:
+            data = np.random.lognormal(mean=0, sigma=1, size=1000)
+            stat, p_value = lognormal_test(data)
+            self.assertGreater(p_value, 0.05)
+        except Exception as e:
+            print(f'Error {e}')
+
+
 
 
 if __name__ == '__main__':
